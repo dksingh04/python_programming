@@ -89,7 +89,7 @@ def getComputerMove(board, computerLetter):
              if isWinner(copy, playerLetter):
                  return i
      # Check if any of the corner is free
-    move = chooseRandomMoveFromList(board, [1, 3, 7, 9])
+    move = chooseRandomMoveFromList(board, playerLetter, [1, 3, 7, 9])
     if move != None:
         return move
     # Check if Center of board is free
@@ -97,18 +97,30 @@ def getComputerMove(board, computerLetter):
         return 5
 
     # check move on one of the side
-    return chooseRandomMoveFromList(board,[2, 4, 6, 8])
-
-def chooseRandomMoveFromList(board, movesList):       
+    return chooseRandomMoveFromList(board, playerLetter, [2, 4, 6, 8])
+# modified this method to add more AI to Computer
+def chooseRandomMoveFromList(board, playerLetter, movesList):       
+    possibleWinMoves = []
     possibleMoves = []
-
+    canPlayerWin = False
     for i in movesList:
+        copy = getBoardCopy(board)
         if isSpaceFree(board, i):
-            possibleMoves.append(i)
-    if len(possibleMoves) != 0:
-        return random.choice(possibleMoves)
+            makeMove(copy, playerLetter, i)
+            if isWinner(copy, playerLetter):
+                possibleWinMoves.append(i)
+                canPlayerWin = True
+            else:
+                possibleMoves.append(i)
+
+
+    if len(possibleWinMoves) != 0 and canPlayerWin:
+        return random.choice(possibleWinMoves)
     else:
-        return None
+        if len(possibleMoves)!=0:
+            return random.choice(possibleMoves)
+        else:
+            return None
 
 def playAgain():
     # This function returns True if the player wants to play again, otherwise it returns False.
