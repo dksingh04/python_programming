@@ -1,2 +1,2 @@
 #Opencv
-Exploring opencv library and explored different features of opencv library.
+Exploration of opencv library and different features of the library.
