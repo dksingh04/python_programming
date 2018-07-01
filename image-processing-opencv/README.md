@@ -1,2 +1,2 @@
 #Opencv
-Exploration of opencv library and different features of the library.
+Exploring Image processing concepts using python Python Opencv library.
