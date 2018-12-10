@@ -31,7 +31,7 @@ def findY(xp, x, y):
             return y[i-1] + ((y[i] - y[i-1]) / (x[i] - x[i-1])) * (xp - x[i-1])
         else:
             print("Given point is out of range..")
-    
+
 # find temperature at 50 sec
 res = findY(50, sec, temp)
 

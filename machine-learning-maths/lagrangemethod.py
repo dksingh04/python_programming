@@ -46,7 +46,7 @@ for xp in xarray:
     yarray[idx] = yp
     idx += 1
 
-print(xarray)
+#print(xarray)
 plt.title("Lagrange vs Linear Interpolation")
 plt.plot(sec, temp, "ro--", xarray, yarray)
 plt.xlabel("X")
