@@ -48,18 +48,24 @@ def solve(xarray, a):
           idx+=1
 
       return yarray
-      
-c = findCoefficient(x, y, 2)
-print('The polynomial function is: \n')
-print('f(x) =\t %f \t'% c[0])
-for i in range(1, len(c)):
-      print("\t %+f x^%d" %(c[i], i))
 
-xarray = np.linspace(x[0], x[-1], 50)
+def printequation(c):
+      print('The polynomial function is: \n')
+      print('f(x) =\t %f \t'% c[0])
+      for i in range(1, len(c)):
+            print("\t %+f x^%d" %(c[i], i))
+      
+      print("\n")
+      
+      
+xarray = np.linspace(x[0], x[-1], 50)      
+c = findCoefficient(x, y, 2)
+printequation(c)
 yarray = solve(xarray, c)
 
 #polynomial degree 3
 c3 = findCoefficient(x, y, 3)
+printequation(c3)
 yarray1 = solve(xarray, c3)
 
 #print(yarray)
